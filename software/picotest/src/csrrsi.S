@@ -1,0 +1,51 @@
+#include "riscv_test.h"
+#include "test_macros.h"
+#include "test_macros_csr.h"
+
+.text
+.global csrrsi
+csrrsi:
+TEST_CSRI_OP(0, csrrsi, 0x15, 0x11, 0x14, mepc, x19)
+TEST_CSRI_OP(1, csrrsi, 0xf, 0x5, 0xf, mcause, x24)
+TEST_CSRI_OP(2, csrrsi, 0x1f, 0xb, 0x14, mstatus, x27)
+TEST_CSRI_OP(3, csrrsi, 0x1b, 0x1a, 0x13, mepc, x14)
+TEST_CSRI_OP(4, csrrsi, 0x1d, 0x1c, 0x1, mstatus, x10)
+TEST_CSRI_OP(5, csrrsi, 0xf, 0x9, 0xe, mstatus, x22)
+TEST_CSRI_OP(6, csrrsi, 0x10, 0x10, 0x0, mtvec, x24)
+TEST_CSRI_OP(7, csrrsi, 0x17, 0x17, 0x2, mepc, x27)
+TEST_CSRI_OP(8, csrrsi, 0xb, 0x3, 0x9, mcause, x25)
+TEST_CSRI_OP(9, csrrsi, 0x1c, 0xc, 0x14, mtvec, x14)
+TEST_CSRI_OP(10, csrrsi, 0x1f, 0x3, 0x1d, mepc, x2)
+TEST_CSRI_OP(11, csrrsi, 0xb, 0xb, 0x2, mcause, x24)
+TEST_CSRI_OP(12, csrrsi, 0x17, 0x14, 0x3, mstatus, x27)
+TEST_CSRI_OP(13, csrrsi, 0x9, 0x8, 0x1, mstatus, x18)
+TEST_CSRI_OP(14, csrrsi, 0xf, 0xe, 0x9, mcause, x27)
+TEST_CSRI_OP(15, csrrsi, 0x1f, 0x17, 0xa, mepc, x20)
+TEST_CSRI_OP(16, csrrsi, 0x1c, 0x14, 0xc, mtvec, x11)
+TEST_CSRI_OP(17, csrrsi, 0x1b, 0x1b, 0x3, mstatus, x4)
+TEST_CSRI_OP(18, csrrsi, 0xf, 0x9, 0x6, mcause, x24)
+TEST_CSRI_OP(19, csrrsi, 0xf, 0x9, 0xf, mcause, x6)
+TEST_CSRI_OP(20, csrrsi, 0xf, 0x9, 0x7, mepc, x7)
+TEST_CSRI_OP(21, csrrsi, 0xb, 0x9, 0x3, mepc, x20)
+TEST_CSRI_OP(22, csrrsi, 0x5, 0x5, 0x1, mcause, x21)
+TEST_CSRI_OP(23, csrrsi, 0xf, 0xf, 0x8, mcause, x21)
+TEST_CSRI_OP(24, csrrsi, 0xf, 0x1, 0xf, mepc, x9)
+TEST_CSRI_OP(25, csrrsi, 0x1f, 0x1, 0x1e, mstatus, x12)
+TEST_CSRI_OP(26, csrrsi, 0x14, 0x14, 0x0, mtvec, x6)
+TEST_CSRI_OP(27, csrrsi, 0xa, 0x0, 0xa, mstatus, x30)
+TEST_CSRI_OP(28, csrrsi, 0xf, 0x5, 0xe, mstatus, x9)
+TEST_CSRI_OP(29, csrrsi, 0x10, 0x10, 0x10, mtvec, x17)
+
+TEST_CSRI_BYPASS(30, csrrsi, 0xe, 0xe, 0xa, mcause, x13, 0)
+TEST_CSRI_BYPASS(31, csrrsi, 0xf, 0x9, 0xe, mstatus, x21, 1)
+TEST_CSRI_BYPASS(32, csrrsi, 0x1c, 0x18, 0x4, mtvec, x16, 2)
+TEST_CSRI_BYPASS(33, csrrsi, 0x1c, 0x4, 0x1c, mstatus, x15, 3)
+TEST_CSRI_BYPASS(34, csrrsi, 0x14, 0x10, 0x14, mtvec, x17, 4)
+TEST_CSRI_BYPASS(35, csrrsi, 0x1c, 0x14, 0x18, mtvec, x10, 5)
+
+TEST_CSRI_ZERO_DEST(36, csrrsi, 0xc, 0x8, mtvec)
+TEST_CSRI_ZERO_DEST(37, csrrsi, 0xc, 0x5, mcause)
+TEST_CSRI_ZERO_DEST(38, csrrsi, 0x14, 0x18, mepc)
+TEST_CSRI_ZERO_DEST(39, csrrsi, 0x7, 0x2, mcause)
+
+TEST_PASSFAIL
