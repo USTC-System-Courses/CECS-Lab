@@ -8,4 +8,4 @@ ln -s ../software/picotest picotest
 ln -s ../software/functest functest
 
 cd ../simulator/IP
-git clone https://github.com/USTC-System-Courses/CECS-pipeline-BRAM.gitt pipeline-BRAM
+git clone https://github.com/USTC-System-Courses/CECS-pipeline-BRAM.git pipeline-BRAM
