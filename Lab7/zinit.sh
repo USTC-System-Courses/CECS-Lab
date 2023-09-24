@@ -1,7 +1,7 @@
 
 
 cd ../software
-git clone git@github.com:USTC-System-Courses/CECS-os.git CECS-os
+git clone https://github.com/USTC-System-Courses/CECS-os.git CECS-os
 mv ./CECS-os/os-app ./os-app
 mv ./CECS-os/os ./os
 rm -rf ./CECS-os
